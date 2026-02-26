@@ -9,6 +9,7 @@ use crate::sdp::MediaType;
 use crate::rtp::vla::encode_leb_u63;
 
 mod av1;
+pub use av1::detect_av1_keyframe;
 pub use av1::Av1CodecExtra;
 use av1::{Av1Depacketizer, Av1Packetizer};
 
@@ -16,6 +17,7 @@ mod g7xx;
 use g7xx::{G711Depacketizer, G711Packetizer, G722Packetizer};
 
 mod h264;
+pub use h264::detect_h264_keyframe;
 pub use h264::H264CodecExtra;
 pub use h264::{H264Depacketizer, H264Packetizer};
 
@@ -23,6 +25,7 @@ mod h264_profile;
 pub(crate) use h264_profile::H264ProfileLevel;
 
 mod h265;
+pub use h265::detect_h265_keyframe;
 pub use h265::H265CodecExtra;
 use h265::H265Depacketizer;
 pub use h265::H265Packetizer;
@@ -34,10 +37,12 @@ mod opus;
 pub use opus::{OpusDepacketizer, OpusPacketizer};
 
 mod vp8;
+pub use vp8::detect_vp8_keyframe;
 pub use vp8::Vp8CodecExtra;
 pub use vp8::{Vp8Depacketizer, Vp8Packetizer};
 
 mod vp9;
+pub use vp9::detect_vp9_keyframe;
 pub use vp9::Vp9CodecExtra;
 pub use vp9::Vp9PacketizerMode;
 use vp9::{Vp9Depacketizer, Vp9Packetizer};
