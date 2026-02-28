@@ -44,13 +44,13 @@ pub fn twcc() -> Result<(), RtcError> {
     assert_eq!(params.spec().codec, Codec::Vp8);
     let pt = params.pt();
 
-    let data_a = [1_u8; 80];
+    let data_a = vec![1_u8; 80];
 
     loop {
         {
             let wallclock = l.start + l.duration();
             let time = l.duration().into();
-            l.writer(mid).unwrap().write(pt, wallclock, time, data_a)?;
+            l.writer(mid).unwrap().write(pt, wallclock, time, data_a.clone())?;
         }
 
         progress(&mut l, &mut r)?;

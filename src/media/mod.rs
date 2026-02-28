@@ -3,6 +3,8 @@
 use std::collections::{HashMap, VecDeque};
 use std::time::Instant;
 
+use bytes::Bytes;
+
 use crate::change::AddMedia;
 use crate::format::CodecConfig;
 use crate::io::{Id, DATAGRAM_MTU};
@@ -183,7 +185,7 @@ pub(crate) struct ToPayload {
     pub wallclock: Instant,
     pub rtp_time: MediaTime,
     pub start_of_talk_spurt: bool,
-    pub data: Vec<u8>,
+    pub data: Bytes,
     pub ext_vals: ExtensionValues,
 }
 

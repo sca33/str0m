@@ -1622,6 +1622,7 @@ version = "0.16.2"
 dependencies = [
  "_str0m_test",
  "arrayvec",
+ "bytes",
  "combine",
  "crc",
  "dimpl",
